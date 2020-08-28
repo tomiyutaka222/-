@@ -1,0 +1,460 @@
+/* 共通設定 */
+body{
+    font-family: sans-serif;
+}
+
+.body{
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto 0 auto;
+    margin-top: -400px;
+    width: 100%;
+    height: 100%;
+}
+
+
+footer{
+    text-align: center;
+    height: 100px;
+    padding: 40px;
+}
+
+p,h1,h2,h3{
+    color: rgb(0, 0, 0);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+}
+
+/* バックグラウンドアニメーション */
+
+/* Cool infinite background scrolling animation.
+ * Twitter: @kootoopas
+ */
+/* Exo thin font from Google. */
+@import url(https://fonts.googleapis.com/css?family=Exo:100);
+/* Background data (Original source: https://subtlepatterns.com/grid-me/) */
+/* Animations */
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  margin-top: 13.5rem;
+  color: #999;
+  font: 400 16px/1.5 exo, ubuntu, "segoe ui", helvetica, arial, sans-serif;
+  text-align: center;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 0.92s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 0.92s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+body::before {
+  content: "INFINITY";
+  font-size: 8rem;
+  font-weight: 100;
+  font-style: normal;
+}
+
+
+
+/* ここからヘッダーフィクサー */
+div#header-fixed
+{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 1px;  
+    z-index: 5;
+    transition: .3s;
+}
+ 
+div#header-bk { 
+	background-color:rgb(255, 251, 251);    
+	padding:10px 0 20px;     
+	height:30px;             
+	width:100%;               
+}
+ 
+ 
+div#header { 
+	height: 100%;             
+	width: 100%;             
+  margin: auto;
+}
+#index{
+    padding-top: 22px;
+}
+
+/* ここからナビ　ホバーアニメーション */
+nav a {
+	position: relative;
+	display: inline-block;
+    margin:auto;
+    margin: 7px;
+	outline: none;
+	color:rgb(108,198,228);
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(108,198,228);
+  font-size: 16px;
+}
+
+nav a:hover,
+nav a:focus {
+	outline: none;
+}
+
+.cl-effect-21 a {
+	padding: 0;
+	color: rgb(179,179,179);
+	font-weight: 50;
+	text-shadow: none;
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.cl-effect-21 a::before,
+.cl-effect-21 a::after {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background:rgb(108,198,228);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	transition: opacity 0.3s, transform 0.3s;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	transform: translateY(-10px);
+}
+
+.cl-effect-21 a::before {
+	top: 0;
+	-webkit-transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	transform: translateY(-10px);
+}
+
+.cl-effect-21 a::after {
+	bottom: 0;
+	-webkit-transform: translateY(10px);
+	-moz-transform: translateY(10px);
+	transform: translateY(10px);
+}
+
+.cl-effect-21 a:hover,
+.cl-effect-21 a:focus {
+	color:rgb(108,198,228);
+}
+
+.cl-effect-21 a:hover::before,
+.cl-effect-21 a:focus::before,
+.cl-effect-21 a:hover::after,
+.cl-effect-21 a:focus::after {
+	opacity: 1;
+	-webkit-transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	transform: translateY(0px);
+}
+.color-7 {
+	background: rgb(255, 251, 251);
+}
+
+
+/* ここからヘッダーアニメーション */
+
+.box {
+    width: 100%;
+    height: 650px;
+    border-radius: 5px;
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+    background: #fbfcee;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+
+  }
+  
+  .wave {
+    opacity: 0.4;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    background: #0af;
+    width: 800px;
+    height: 1000px;
+    margin-left: -400px;
+    margin-top: -400px;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 10000ms infinite linear;
+  }
+  
+  .wave.-three {
+    animation: drift 4000ms infinite linear;
+  }
+  
+  .wave.-two {
+    animation: drift 5000ms infinite linear;
+    opacity: 0.1;
+    background: yellow;
+  }
+  
+  .box:after {
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #ee88aa, rgba(221, 238, 255, 0) 80%, rgba(255, 255, 255, 0.5));
+    z-index: 11;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .title {
+    position: absolute;
+    left: 0;
+    top: 150px;
+    width: 100%;
+    z-index: 1;
+    line-height: 300px;
+    text-align: center;
+    transform: translate3d(0, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.4em;
+    font-size: 30px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    text-indent: 0.3em;
+  }
+  
+  @keyframes drift {
+    from {
+      transform: rotate(0deg);
+    }
+    from {
+      transform: rotate(360deg);
+    }
+  }
+
+
+  
+  @keyframes fadeIn { /*animetion-nameで設定した値を書く*/
+  
+    0% {opacity: 0} /*アニメーション開始時は不透明度0%*/
+  
+    100% {opacity: 1} /*アニメーション終了時は不透明度100%*/
+  
+  }
+/* ここからボタンホバーアニメーション */
+
+h1 {
+    text-align: left;
+    color: rgb(108, 198, 228);
+    margin-top: 60px;
+    margin-bottom: -10px;
+    letter-spacing: 2px;
+}
+
+
+.button-coll{
+    width: 30%;
+    margin: 50px auto;
+    text-align: center;
+}
+button{
+    margin-top: 17px;
+    background: rgb(255, 251, 251);
+}
+.custom-btn{
+    width: 400px;
+    height: 60px;
+    padding: 10px 25px;
+    font-family: "Robot" , sans-serif;
+    color: rgb(108, 198, 228);
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: 5px;
+    outline: none !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+}
+
+.btn-15 {
+    border: 2px solid rgb(108, 198, 228);
+    z-index: 1;
+
+  }
+  .btn-15:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    direction: rtl;
+    z-index: -1;
+    background: rgb(108, 198, 228);
+    transition: all 0.3s ease;
+  }
+  .btn-15:hover {
+    color:rgb(255,251,251);
+  }
+  .btn-15:hover:after {
+    left: auto;
+    right: 0;
+    width: 100%;
+  }
+  .btn-15:active {
+    top: 2px;
+  }
+
+
+  /* index */
+.photoshop  {
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: -280px;
+    background-color: turquoise;
+}
+
+
+
+/* flexbox (index ai web)*/
+.text{
+    text-align: center;
+    margin-bottom: 100px;
+    margin-top: -140px;
+    background-color: turquoise;
+}
+.ai{
+    display: flex;
+    margin-top: 0px;
+    padding-top: 400px;
+}
+
+.thum .flex{
+    flex-direction: column-reverse;
+    padding: 130px 0 130px 0;
+    background-color: rgb(235, 235, 235);
+    border-bottom: 2px dotted grey ;
+}
+
+.thum .flex div h3{
+    width: 450px;
+    margin: 0 0 100px 40px ;
+    text-align: left;
+}
+
+.thum .flex h2{
+    margin: 0 0 50px 40px ;
+    text-decoration: underline red;
+    text-align: left;
+    
+}
+
+.thum .flex div p{
+    width: 400px;
+    margin-left: 40px;
+    text-align: left;
+}
+
+
+.thum .flex button{
+    margin-left: 40px;
+}
+
+/* chat.html */
+.chat{
+    margin-top: 200px;
+}
+
+.foo p{
+    padding-top: 10px;
+}
+
+ul > li:first-child {
+    color: black;
+    font-size: 25px;
+   }
+
+   ul > li:nth-child(2n) {
+    color: blue;
+   }
+
+   ul > li:nth-child(2n):before {
+    content:"ユーザー名："
+   }
+
+   /* スクロール */
+
+.thum{
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.7s;
+}
+
+.thum.is-over{
+    opacity: 1;
+    transform: translateY(0);
+}
