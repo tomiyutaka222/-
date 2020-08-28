@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat js練習１</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../respoonsive.css" media="screen and (max-width:767px)">
+            <!-- 　//Firebaseライブラリを読み込む -->
+            <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+            <script src="chat.js"></script>
+</head>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCaO8N_ErG1p4-26ugI73UuXHQFBHxQOO4",
+    authDomain: "renshu-6c63f.firebaseapp.com",
+    databaseURL: "https://renshu-6c63f.firebaseio.com",
+    projectId: "renshu-6c63f",
+    storageBucket: "renshu-6c63f.appspot.com",
+    messagingSenderId: "1022146195959",
+    appId: "1:1022146195959:web:ebaf37dce9eec54d57bef2",
+    measurementId: "G-0RGN5D5QNJ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
+
+    <body　id="index">
+
+
+        <div class="body">
+            <div id="header-fixed">
+                <div id="header-bk">
+                       <div id="header">
+                        <section class="color-7">
+                            <nav class="cl-effect-21" id="cl-effect-21">
+                                <a href="#index">TOP</button></a>
+                                <a href="../index.html">Index</button></a>
+                                <a href="../ai.html"> Illustrator</button> </a> 
+                                <a href="../web.html">Website</button></a>
+                                <a href="../mongo/index.html">TASK.mongo</button></a>
+                                <a href="../chat.html">Chat.fire</button></a>
+                                
+                            </nav>
+                        </section>
+                        </div>
+                    </div>
+                </div>
+            <div class="fead">
+                <div class='box'>
+                    <div class='wave -one'></div>
+                    <div class='wave -two'></div>
+                    <div class='wave -three'></div>
+                    <div class='title'>CHAT.JS</div>
+                  </div>
+                </div>
+
+
+
+<div class="bodytwo">
+
+    <main>
+<div class="chat"></div>
+        <div class="text">
+            <h2>chat</h2>
+            <p>私は職業訓練中に講師の助言もあり、javascriptを勉強しておりました。<br>
+            まだ到底理解には及びませんが、簡単なチャット機能をこちらにつけさせて頂きました。<br>
+            firebaseに接続してデータベースと連動させることも何とか出来ましたが、実践で使えるレベルにはまだ到底達しておらず今後の課題を見つけました。<br>
+            御社のサイトを確認した所、javascriptやfirebaseを使っていらっしゃるようなので、もし実習をさせて頂けるのならばぜひ勉強させて頂きたく思っております。
+        </p>
+            </div>
+
+  <div class="foo">
+   <!-- 投稿者 -->
+   <div >
+    <p>ユーザ名</p>
+    <textarea name="" id="jsi-name" cols="10" rows="1"></textarea>
+   </div>
+
+   <!-- メッセージを打ち込む部分 -->
+   <div>
+    <p>内容</p>
+    <textarea name="" id="jsi-msg" cols="30" rows="4"></textarea>
+   </div>
+  </div>
+
+          
+            <!-- メッセージを送る部分 -->
+            <button name="button" id="jsi-button">send message!</button>
+          
+            <!-- チャット内容が動的に生成される部分 -->
+            <ul id="jsi-board" style="list-style:none;">
+              <li>〜チャット内容〜</li>
+            </ul>
+
+            <footer>
+                <small>©2020　薮田秀幸 ポートフォリオサイト</small>
+            </footer>
+</body>
+</div>
+
+          
+</html>
