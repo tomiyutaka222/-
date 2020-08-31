@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webを制作するにあたって勉強すべきこと</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js    "></script>
+
+</head>
+<body>
+    <div id="app">
+    <h1>Web制作を勉強してみよう！</h1>
+    <p style="background-color: rgb(255, 167, 167); width: 700px;">{{message}}</p>
+        <label><input @change="onClick();onUrl;onClick2(); onClick3(); onClick4()" type="radio"  value="HTML" v-model="myLang">HTMLが勉強したい </label><br>
+        <label><input @change="onClick();onUrl;onClick2(); onClick3(); onClick4()" type="radio"  value="CSS" v-model="myLang">CSSが勉強したい </label><br>
+        <label><input @change="onClick();onUrl;onClick2(); onClick3(); onClick4()" type="radio"  value="JAVASCRIPT" v-model="myLang">JAVASCRIPTを勉強したい </label><br>
+   
+    <p :class="myLang"> {{myLang}} を知りたい！！</p>
+    
+    <div style="text-align: center;">
+        <img :src="myPic" alt="" width="300px" >
+    </div>
+    <table cellspacing="0" style="text-align: center;border: 2px solid black;background-color: lightblue;">
+        <thead>
+            <th v-for="item in header" style="border: 1px solid black;">{{ item }}</th>
+        </thead>
+        <tbody>
+            <tr v-for="line in ranking" style="border: 1px solid black;">
+                <td v-for="item in line" style="border: 1px solid black;">{{ item }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div style="background-color: lightgray;padding: 10px;margin-top: 20px;">
+        <p v-for="(memos, index) in memo"> {{index}}:{{memos}}</p>
+    </div>
+<div style="text-align: center;">
+    <button style="margin-top: 20px;margin-bottom: 100px;width:300px;font-size:20px;background-color: rgba(0, 200, 150, 150);"><a :href="myUrl" target="_blank">勉強するためのページへ</a></button>
+</div>
+
+</div>
+
+</div>
+    <script src="vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        props: {
+            
+        },
+        data:{
+            myText: '今日はいい天気だ。',
+            price: '1',
+            count: '100',
+            myLang: 'ホームページで使う言語を学ぼう！',
+            myPic: 'all-lang.png',
+            myUrl: '',
+            message: 'プログラミングを勉強してみよう！！',
+            memo: ['最初に自分のやりたい方向性を決めよう！','学びたい言語を決めよう！','ネット系が学びたいのであればこの下のステップ進んででみよう！！','マークアップ言語を学んでみよう！！','ジャバスクリプトを学んでみよう！！'],
+            header: ['言語','HTML','CSS','JAVASCRIPT','J-Query','PHP','その他CMS'],
+            ranking:[ ['優先度','◎','◎','〇','〇','△','△'],
+                    ['理由','最初に学ぼう','最初に学ぼう','後で学ぼう','後で学ぼう','時間あったら','使えたら便利'] ,
+                    ['難易度', '低', '中' , '高', '中', '高','中']
+                    ],
+            table:'',
+            findWord: '',
+            items: ['花さかじいさん','桃太郎','テニスの王子様','偽物語','花より団子','チャージマン　ケン','ポケモン'],
+            R: 100,
+            G: 200,
+            B: 150,
+            forbiddenText: 'おじさん',
+            inputText: '今日はいい天気です。'  ,
+            restSec: 5,
+            timerObj: null,
+            myNumber: 0,
+            tweenedNumber: 0,
+            range1: true,
+            range2: false
+        },
+        methods: {
+            onClick(myPic){
+                if(this.myLang === 'HTML'){
+                this.myPic = 'html.png'
+            }else if(this.myLang === 'CSS'){
+                this.myPic = 'css.png'
+            }else if(this.myLang === 'JAVASCRIPT'){
+                this.myPic = 'javascript.png'
+            }else{
+                console.log('選択されていません');
+            }
+            },
+            onClick2(myLang){
+                if(this.myLang === 'HTML'){
+                    this.message = "HTMLとはウェブサイトに文字を表示させたり構築をする為に最も重要な言語です。動的なページ作成やアプリ作成は出来ませんが、プログラミング勉強の取っ付きにはちょうどいいです。"
+                }else if(this.myLang === 'CSS'){
+                    this.message = "CSSとはウェブサイトの見た目やレイアウトを作る為の重要な言語です。CSSを使うことでよりお洒落で見やすいページの制作ができます。"
+                }else{
+                    this.message = "JAVASCRIPTとはウェブページを動的に表現する為の言語です。HTML/CSSを学んだ方は今度はこちらを勉強しましょう。理解できれば合わせてJ-Queryも使えるようになります。"
+                }
+            },
+            onClick3(myLang){
+                if(this.myLang === 'HTML'){
+                    this.memo = ['タグや基本的な文法を学ぼう！','文字を表示させてみよう！','画像を表示させてみよう！','ページリンクを表示させてみよう！','ボックスの概念を学んでみよう！']
+                }else if(this.myLang === 'CSS'){
+                    this.memo = ['スタイリングというものを知ろう！','背景の色や表示サイズを変えてみよう！','文字の色を変えたり、大きさを変えてみよう！','疑似classやidについて学んでみよう！','セレクターや子孫関係について学ぼう']
+                }else{
+                    this.memo = ['どういう動きをする言語か、その仕事内容を見てみよう！',"基本構文や演算子について学ぼう！","オブジェクト指向とは何か学んでみよう！","実際にHelloWorldとコンソールさせてみよう！","メソッドを学ぼう！","実際にDOM操作してみよう！"]
+                }
+            },
+            onClick4(myLang){
+                switch(this.myLang){
+                    case 'HTML':
+                    this.header = ['HTML出来ること','文字を表示','画像を表示','レイアウト作成','色を変える','アニメーション','動的表現']
+                    this.ranking = [ ['出来るのか','〇','〇','×','×','×','×'],
+                    ['概要','得意分野です','得意分野です','表示しかできない','表示しかできない','表示しかできない','静的表現しかできない'] ,
+                    ['難易度', '低', '中' , '-', '-', '-','-']
+                    ];
+                    break;
+                    case 'CSS':
+                    this.header = ['CSS出来ること','文字を表示','画像を表示','レイアウト作成','色を変える','アニメーション','動的表現']
+                    this.ranking = [ ['出来るのか','×','△','〇','〇','〇','△'],
+                    ['概要','文字はHTML','バックに表示なら〇','得意分野です','得意分野です','出来ます','工夫すれば疑似的に'] ,
+                    ['難易度', '低', '中' , '-', '-', '-','-']
+                    ];
+                    break;
+                    case 'JAVASCRIPT':
+                    this.header = ['JS出来ること','文字を表示','画像を表示','レイアウト作成','色を変える','アニメーション','動的表現']
+                    this.ranking = [ ['出来るのか','△','△','△','△','〇','〇'],
+                    ['概要','タグ生成なら','タグ生成なら','タグ生成なら','クラス生成なら','得意分野です','得意分野です'] ,
+                    ['難易度', '中', '中' , '高', '高', '高','高']
+                    ];
+                    break;
+                    default:
+                        console.log('値が正しくありません。');
+                        break;
+                    ;       
+                }
+            },
+            startTimer: function() {
+                this.restSec = 5;
+                this.timerObj = setInterval(()=> {this.restSec --}, 1000)
+            }
+        },
+        strg1(){
+            if(range1 === true){
+                range2 = false
+            }
+},
+        strg2(){
+            if(range2 === true){
+                range1 === false
+            }
+        },
+        computed: {
+            onUrl(myLang){
+                if(this.myLang === 'HTML'){
+                this.myUrl = 'https://developer.mozilla.org/ja/docs/Web/HTML'
+            }else if(this.myLang === 'CSS'){
+                this.myUrl = 'https://developer.mozilla.org/ja/docs/Web/CSS'
+            }else if(this.myLang === 'JAVASCRIPT'){
+                this.myUrl = 'https://developer.mozilla.org/ja/docs/Learn/JavaScript/First_steps/What_is_JavaScript'
+            }else{
+                console.log('選択されていません');
+            }
+            },
+            sum: function(){
+                return this.count*this.price;
+            },
+            taxIncluded: function(){
+                return this.sum*1.08;
+            },
+            remaining: function(){
+                return 140 - this.myText.length;
+            },
+            computedColor: function(){
+                col = "green";
+                if(this.remaining < 20){
+                    col ="orange";
+                }
+                if(this.remaining < 1){
+                    col = "red";
+                }
+                return col;
+            },
+            findItems: function(){
+                if(this.findWord){
+                    return this.items.filter(function(value){
+                        return(value.indexOf(this.findWord)>-1);
+                    },this);
+                }else{
+                    return this.items;
+                }
+            },
+            mixColor: function(){
+                let ans = "RGB("+this.R+","+this.G+","+this.B+")"
+                return ans
+            },
+            animeNumber: function(){
+                return this.tweenedNumber.toFixed(0);
+            }
+        },
+        watch: {
+            inputText: function(){
+                let pos = this.inputText.indexOf(this.forbiddenText);
+                if(pos >= 0){
+                    alert(this.forbiddenText + 'は、入力できません。');
+                    this.inputText = this.inputText.substr(0,pos)
+                }
+            },
+            restSec: function () {
+                if(this.restSec <= 0){
+                    alert('会員登録ありがとうございます！登録料158200円（税込み）が発生いたしましたので請求書を発行いたしました。');
+                    clearInterval(this.timerObj);
+                }
+            },
+            myNumber: function(){
+                TweenMax.to(this.$data,1,{tweenedNumber: this.myNumber})
+            }
+        }
+    })
+</script>
+<style>
+    body{
+        width: 1200px;
+    }
+    #app{
+        width: 700px;
+        margin: 0 auto 0 auto;
+        
+    }
+    .HTML{
+        background-color: red;
+        color: seashell;
+        width: 700px;
+    }
+    .CSS{
+        color: seashell;
+        background-color: blue;
+        width: 700px;
+
+    }
+    .JAVASCRIPT{
+        color: black;
+        background-color: rgb(252, 227, 89);
+        width: 700px;
+
+    }
+    div button a{
+        text-decoration: none;
+        color: mintcream;
+        font-weight: 700;
+    }
+</style>
+</body>
+
+</html>

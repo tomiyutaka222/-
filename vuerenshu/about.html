@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        <div>
+          <h2>スクロール</h2>
+          <div
+          v-observe-visibility="visibilityChanged01"
+          v-bind:class='{active:isVisible01}'
+          class="scroll_area"><img src="http://placekitten.com/g/500/400" alt=""></div>
+          <div
+          v-observe-visibility="visibilityChanged02"
+          v-bind:class='{active:isVisible02}'
+          class="scroll_area"><img src="http://placekitten.com/g/500/400" alt=""></div>
+      </div>
+      
+      <script src="vue.js"></script>
+      <script>
+        import VueObserveVisibility from 'vue-observe-visibility'
+        Vue.use(VueObserveVisibility)
+      new Vue({
+          data: {
+              isVisible01: false,
+              isVisible02: false
+          },
+          methods: {
+            visibilityChanged01(isVisible01, entry) {
+              this.isVisible01 = isVisible01
+            },
+            visibilityChanged02(isVisible02, entry) {
+              this.isVisible02 = isVisible02
+            }
+        }
+      })
+      </script>
+</body>
+</html>
