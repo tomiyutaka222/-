@@ -1,0 +1,26 @@
+body{
+    background-color: azure;
+}
+
+.bar{
+    width: 1100px;
+    margin: 0 auto 0 auto;
+}
+
+strong{
+    color: red;
+}
+
+h2{
+    border-bottom: rgb(255, 123, 0) solid 2px;
+}
+
+.foo{
+    padding: 40px;
+    background-color: wheat;
+    margin-bottom: 60px;
+}
+
+.index{
+    margin-bottom: 60px;
+}
